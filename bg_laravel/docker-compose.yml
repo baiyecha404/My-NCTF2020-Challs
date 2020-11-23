@@ -1,0 +1,9 @@
+version: '3'
+services:
+    web:
+      build: .
+      container_name: bg_laravel
+      restart: always
+      ports: 
+        - 8095:80
+

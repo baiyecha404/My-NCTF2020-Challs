@@ -1,0 +1,24 @@
+version: "3"
+services:
+  php:
+    build: .
+    container_name: simple_pie_php
+    links:
+      - "memcache:memcache"
+    ports:
+      - "8094:80"
+    networks:
+      simplepie-backend:
+        ipv4_address: 172.22.0.3
+  memcache:
+    image: memcached:latest
+    container_name: simple_pie_cache
+    networks:
+      simplepie-backend:
+        ipv4_address: 172.22.0.4
+networks:
+  simplepie-backend:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.22.0.0/24

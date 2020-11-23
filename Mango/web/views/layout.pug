@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title= "Mango Planet"
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    style.
+      body {
+        padding-top: 56px;
+        padding-bottom: 56px;
+        min-height: 100vh;
+        position: relative;
+      }
+      .footer {
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        height: 56px;
+      }
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      div.container
+        a.navbar-brand(href='/') Mango Planet
+        button.navbar-toggler(type='button', data-toggle="collapse", data-target="#navbarResponsive", aria-controls="navbarResponsive", aria-expanded="false", aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        div.collapse.navbar-collapse#navbarResponsive
+          ul.navbar-nav.ml-auto
+            if !user
+              li.nav-item
+                a.nav-link(href='/signup') Sign up
+              li.nav-item
+                a.nav-link(href='/signin') Sign in
+            else
+              li.nav-item
+                a.nav-link(href='/logout') Logout
+
+    block content
+
+    footer.bg-dark.footer 
+      div.container
+        .row.align-items-center
+          .col-12
+            p.pt-3.text-center.text-white Copyright &copy; NCTF 2020
+
+    script(src="/js/jquery.js")
+    script(src="/js/popper.min.js")
+    script(src="/js/bootstrap.min.js")

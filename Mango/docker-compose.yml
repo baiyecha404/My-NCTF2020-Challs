@@ -1,0 +1,18 @@
+version: '3'
+services:
+  node:
+      build: .
+      container_name: mangoclient
+      restart: always
+      links:
+        - mongodb
+      ports: 
+        - 8091:8084
+  mongodb:
+      image: mongo:4.2
+      container_name: mongodb
+      restart: always
+      environment:
+          MONGO_INITDB_DATABASE: mangousers
+      volumes:
+          - ./init_db.js:/docker-entrypoint-initdb.d/init_db.js:ro

@@ -1,0 +1,10 @@
+version: '2'
+services:
+    node:
+      build: .
+      container_name: js_world
+      restart: always
+      ports: 
+        - 8090:8088
+      volumes:
+        - ./flag.txt:/flag.txt

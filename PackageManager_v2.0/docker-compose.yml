@@ -1,0 +1,22 @@
+version: '3'
+services:
+    node:
+      build: .
+      container_name: package_manager_2_node
+      restart: always
+      ports: 
+        - 8093:8086
+      links:
+        - mongodb
+      volumes:
+        - ./hint.txt:/hint.txt
+    mongodb:
+      image: mongo:4.2
+      container_name: package_manager_2_db
+      restart: always
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: byc_404
+        MONGO_INITDB_ROOT_PASSWORD: supersecretuserpwd233
+        MONGO_INITDB_DATABASE: flag
+      volumes:
+        - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro 

@@ -1,0 +1,10 @@
+version: '3'
+services:
+    node:
+      build: .
+      container_name: package_manager
+      restart: always
+      ports: 
+        - 8092:8082
+      volumes:
+        - ./flag:/w0w_Congrats_Th1s_1s_y0ur_flaaag
